@@ -7,18 +7,21 @@ const key = 'feedback-form-state';
 
 const form = document.querySelector('.feedback-form');
 const { email, message } = form.elements;
+console.log(form.elements);
 
 populateForm();
 form.addEventListener('input', inputHandler);
 form.addEventListener('submit', submitHandler);
 
 function inputHandler(event) {
+
   formData[event.target.name] = event.target.value;
 
   localStorage.setItem(key, JSON.stringify(formData));
 }
 
 function submitHandler(event) {
+
   event.preventDefault();
 
   if (formData.email === '' || formData.message === '') {
